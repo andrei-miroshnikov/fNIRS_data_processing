@@ -26,6 +26,15 @@ def merge_epochs(open, closed, process_dirs=True, make_epochs=True, duration=2):
             return merged
 
 
+def snirf_list_maker(total_snirf, masks):
+    snirf_list = []
+    for file in total_snirf:
+        for j in masks:
+            if j in file:
+                snirf_list.append(file)
+    return snirf_list
+
+
 def filter_and_make_even_epochs(i, duration, channels):
     '''Function takes snirf path as i and duration of epochs in seconds or equivalent. If equivalent, the recording will be split into 100 epochs of equal length.
     You can also provide a list of channels into channels arg to select hbo or hbr channels.'''
